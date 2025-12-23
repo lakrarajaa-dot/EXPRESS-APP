@@ -1,7 +1,7 @@
 const userService = require('../services/users');
 
 const getAll = async () => {
-    return await userService.all();
+    return await userService.getAll();
 }
 
 const insertOne = async (email, password) => {
