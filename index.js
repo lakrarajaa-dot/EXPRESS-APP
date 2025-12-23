@@ -24,7 +24,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
   
-  res.send('Helloo API EXPRESS !');
+  res.send('Welcome to API EXPRESS !');
 });
 
 app.use('/api/users', userRoutes);

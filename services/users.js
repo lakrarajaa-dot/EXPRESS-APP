@@ -4,12 +4,14 @@ const getAll = async () => {
     return await User.create(user);
 }
 
-const insertOne = async (user) => {
-    if(user.password.length <= 6) {
-        throw new Execption("mot de passe trop court !");
+const insertOne = async (email, password) => {
+    if(password.length <= 6) {
+        throw new Error("mot de passe trop court !");
     }
 
-    return await User.create(user);
+    const hash = await bcrypt.hash(password, 10);
+
+    return await User.create({email, password: hash});
 }
 
 module.exports = {
